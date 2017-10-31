@@ -1,0 +1,40 @@
+$breakpoint-map: (
+	default: (),
+  xxs: (
+    min-width: null,
+    max-width: 320px
+  ),
+  xs: (
+    min-width: 321px,
+    max-width: 480px
+  ),
+  sm: (
+    min-width: 481px,
+    max-width: 640px
+  ),
+  md: (
+    min-width: 641px,
+    max-width: 768px
+  ),
+  lg: (
+    min-width: 769px,
+    max-width: 1024px
+  ),
+  xl: (
+    min-width: 1025px,
+    max-width: 1200px
+  ),
+  xxl: (
+    min-width: 1201px,
+    max-width: null
+  )
+);
+
+@function getBP($label, $max: null){
+	$thing: map-get($breakpoint-map, $label);
+	@if $max != null {
+		@return map-get($thing, max-width);
+	} @else {
+		@return map-get($thing, min-width);
+	}
+}

@@ -1,0 +1,16 @@
+$colors: (
+  red: #F00,
+  green: #00F,
+  blue: #00F
+);
+
+@each $label $color in $colors {
+	.bg-color--#{$label} { background-color: $color; }
+	.text-color--#{$label} { color: $color; }
+	.border-color--#{$label} { border-color: $color; }
+	.fill-color--#{$label} { fill: $color; }
+}
+
+@function getColor($label){
+	@return map-get($brand-colors, $label);
+}

@@ -1,0 +1,58 @@
+$vert-spaces: (
+  0: 0,
+  default: 3rem,
+  sm: (3rem * 0.66),
+  lg: (3rem * 1.66)
+);
+
+@function getSpace($label){
+	@return map-get($vert-spaces, $label);
+}
+
+// Margin
+.no-margin { margin: 0 !important; }
+
+.margin-t-0 { margin-top: 0 !important; }
+.margin-b-0 { margin-bottom: 0 !important; }
+.margin-v-0 {
+	@extend .margin-t-0;
+	@extend .margin-b-0;
+}
+
+.margin-l-0 { margin-left: 0 !important; }
+.margin-r-0 { margin-right: 0 !important; }
+.margin-h-0 {
+	@extend .margin-l-0;
+	@extend .margin-r-0;
+}
+
+
+// Padding
+.no-padding { padding: 0 !important; }
+
+.padding-l-0 { padding-left: 0 !important; }
+.padding-r-0 { padding-right: 0 !important; }
+.padding-h-0 {
+	@extend .padding-l-0;
+	@extend .padding-r-0;
+}
+
+
+// Loop through vert spaces for Margin & Padding
+@each $size, $val in $vert-spaces {
+	
+	.margin-t-#{$size} { margin-top: $val !important }
+	.margin-b-#{$size} { margin-bottom: $val !important; }
+	.margin-v-#{$size} {
+		@extend .margin-t-#{$size};
+		@extend .margin-b-#{$size};
+	}
+
+	.padding-t-#{$size} { padding-top: $val !important }
+	.padding-b-#{$size} { padding-bottom: $val !important; }
+	.padding-v-#{$size} {
+		@extend .padding-t-#{$size};
+		@extend .padding-b-#{$size};
+	}
+
+}

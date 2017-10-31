@@ -1,0 +1,7 @@
+@mixin tri-arrow($size, $dir: right, $color: 'currentColor'){
+	border: solid $size transparent;
+	@if $dir == left { border-right-color: $color; }
+	@else if $dir == up { border-bottom-color: $color; }
+	@else if $dir == bottom { border-top-color: $color; }
+	@else if $dir == right { border-left-color: $color; }
+}
