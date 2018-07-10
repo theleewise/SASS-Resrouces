@@ -1,0 +1,12 @@
+@mixin chevron($size: 1em, $thicknes: 0.25em, $color: currentColor, $dir: right){
+	border-right: solid $thicknes $color;
+	border-top: solid $thicknes $color;
+	display: block;
+	height: $size;
+	transform-origin: center;
+	width: $size;
+	@if $dir == right { transform: rotate(45deg); }
+	@else if $dir == up { transform: rotate(-45deg); }
+	@else if $dir == left { transform: rotate(-135deg); }
+	@else if $dir == down { transform: rotate(135deg); }
+}
